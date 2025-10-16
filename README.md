@@ -1,4 +1,5 @@
-MatchLang 🇬🇧🇹🇷
+MatchLang
+
 Eğlenerek İngilizce kelime öğrenmenin en oyunlaştırılmış yolu!
 
 MatchLang, Flutter ile geliştirilmiş, zengin oyunlaştırma (gamification) mekaniklerine sahip bir İngilizce kelime öğrenme mobil uygulamasıdır.
@@ -124,6 +125,6 @@ flutter run
 
 Eyüphan Zengin 
 
-GitHub: [GitHub Profil Linkiniz]
+GitHub: https://github.com/Eyuphan6129/
 
-LinkedIn: [LinkedIn Profil Linkiniz]
+LinkedIn: https://www.linkedin.com/in/ey%C3%BCphan-zengin-65ba99307/
