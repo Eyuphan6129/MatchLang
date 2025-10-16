@@ -1,125 +1,129 @@
 MatchLang 🇬🇧🇹🇷
-MatchLang, Flutter ile geliştirilmiş, oyunlaştırma (gamification) öğeleriyle zenginleştirilmiş bir İngilizce kelime öğrenme mobil uygulamasıdır. Kullanıcıların kelime dağarcığını eğlenceli bir şekilde geliştirmesini hedefler.
+Eğlenerek İngilizce kelime öğrenmenin en oyunlaştırılmış yolu!
 
-Bu proje, Eyüphan Zengin tarafından Atatürk Üniversitesi Mühendislik Fakültesi Bilgisayar Mühendisliği Bölümü  staj çalışması kapsamında geliştirilmiştir.
+MatchLang, Flutter ile geliştirilmiş, zengin oyunlaştırma (gamification) mekaniklerine sahip bir İngilizce kelime öğrenme mobil uygulamasıdır.
+
+Bu proje, Eyüphan Zengin tarafından Atatürk Üniversitesi Mühendislik Fakültesi Bilgisayar Mühendisliği Bölümü staj çalışması kapsamında sıfırdan tasarlanmış ve kodlanmıştır .
+
 
 
 (Bu görsel temsilidir, kendi ekran görüntünüzü ekleyebilirsiniz)
 
-✨ Temel Özellikler
-Proje, tam teşekküllü bir mobil oyunda bulunması gereken birçok modern mekaniği içermektedir:
+🛠️ Teknolojiler ve Mimari
+Proje, modern mobil uygulama geliştirme standartları göz önünde bulundurularak inşa edilmiştir:
 
-Kimlik Doğrulama:
-
-
-Google ile Giriş: Firebase Authentication kullanarak hızlı ve güvenli kullanıcı girişi.
+Mimari: Proje, UI (Arayüz), State Management (Durum Yönetimi) ve Data (Veri) katmanlarını birbirinden ayırmayı hedefleyen temiz bir mimari izler.
 
 
+Durum Yönetimi: provider paketi kullanılarak uygulama durumu merkezi bir UserDataProvider  sınıfı üzerinden yönetilmiştir.
 
-Misafir (Guest) Modu: Kullanıcıların hesap oluşturmadan uygulamayı denemesine olanak tanır.
+
+
+Yerel Veritabanı: sqflite kullanılarak oyuncu ilerlemesi, ayarları, coin/can miktarı ve zaman damgaları (son hediye, son can yenilenmesi vb.) cihazda güvenli bir şekilde saklanmıştır.
+
+
+✨ Proje Özellikleri
+🔐 Kimlik Doğrulama ve Kullanıcı Yönetimi
+
+Google ile Hızlı Giriş: [Firebase Authentication]  altyapısı ile tek tıkla güvenli ve hızlı kullanıcı girişi.
+
+
+Misafir Modu: Kullanıcıların hesap oluşturmadan uygulamayı denemesine olanak tanır.
 
 
 Akıllı Veri Birleştirme: Misafir olarak ilerleyen bir kullanıcı, Google ile giriş yaptığında tüm ilerlemesi (seviye, coin, can vb.) otomatik olarak yeni hesabına aktarılır (mergeGuestDataToNewUser).
 
-Oyun Mekanikleri:
-
+🎮 Temel Oyun Mekanikleri
 
 Kelime Eşleştirme: Sürükle-bırak veya tıklama ile İngilizce ve Türkçe kelimeleri eşleştirmeye dayalı temel oyun döngüsü .
 
 
-Dinamik Seviyeler: Kelimeler, yerel bir words.json dosyasından seviyelere göre asenkron olarak yüklenir .
-
-
-Can (Yaşam) Sistemi: Yanlış eşleştirmelerde can azalır. Canlar bittiğinde "Game Over" diyaloğu gösterilir.
+Dinamik Seviye Yükleme: Tüm kelimeler, yerel bir assets/data/words.json dosyasından seviyelere göre asenkron olarak yüklenir ve karıştırılır.
 
 
 
-Oyun Sonu: Seviye tamamlandığında (LevelCompleteDialog) veya rütbe atlandığında (RankUpDialog)  özel ödül diyalogları gösterilir.
-
-
-Oyunlaştırma ve Ekonomi:
-
-
-Ana Ekran (Seviye Haritası): ListView.builder ile oluşturulmuş, dikey olarak kaydırılabilen ve otomatik olarak mevcut seviyeye odaklanan (ScrollController) bir seviye haritası .
-
-
-Rütbe Sistemi: Kazanılan yıldızlara göre "Acemi", "Çırak", "Usta" gibi rütbelerin kilidi açılır (StarScreen) .
+Can Sistemi ve Oyun Sonu: Yanlış eşleştirmelerde can azalır. Seviye tamamlandığında (LevelCompleteDialog) veya rütbe atlandığında (RankUpDialog)  özel ödül diyalogları gösterilir.
 
 
 
-Can Yenilenme: Canlar 5'ten azsa, uygulama arka planda çalışırken (Ana Ekran'da) her 10 dakikada bir otomatik olarak 1 can yenilenir (Timer.periodic) .
+🏆 Oyunlaştırma ve Ekonomi
+
+Dikey Seviye Haritası: ListView.builder ile oluşturulmuş, yüzlerce seviyeyi kaldırabilen, performanstan ödün vermeyen bir ana ekran. ScrollController kullanılarak kullanıcının mevcut seviyesine otomatik odaklanır .
 
 
 
-Mağaza: Günlük hediye (24 saatlik zamanlayıcı) ve coin karşılığı can satın alma.
+Rütbe Sistemi: Kazanılan yıldızlara göre ("Boss" seviyelerinden elde edilir) "Acemi", "Çırak", "Usta" gibi rütbelerin kilidi açılır (StarScreen) .
+
+
+Otomatik Can Yenileme: Canlar 5'ten azsa, uygulama ana ekranda çalışırken Timer.periodic ile her 10 dakikada bir otomatik olarak 1 can yenilenir .
+
+
+Mağaza ve Günlük Hediyeler: 24 saatlik geri sayım ile günlük hediye (coin) alınabilen ve coin karşılığı can satın alınabilen bir mağaza ekranı (StoreScreen).
 
 
 
-İstatistikler: fl_chart kütüphanesi kullanılarak oyuncunun günlük doğru/yanlış cevap oranlarını gösteren dinamik bir pasta grafik (PieChart) .
+İstatistik Ekranı: fl_chart kütüphanesi kullanılarak oyuncunun günlük doğru/yanlış cevap oranlarını gösteren dinamik bir pasta grafik (PieChart) .
+
 
 
 Şans Çarkı: flutter_fortune_wheel kütüphanesi ile 24 saatte bir çevrilebilen ve rastgele ödüller (coin veya PAS) veren bir şans çarkı .
 
-Kullanıcı Deneyimi (UX):
+
+🎨 Arayüz ve Kullanıcı Deneyimi (UI/UX)
+
+Tasarım Odaklı Geliştirme: Kodlamaya başlamadan önce uygulamanın tüm ekranları ve akışları Figma'da detaylıca tasarlanmıştır .
 
 
-Figma ile Tasarım: Kodlamaya başlamadan önce tüm uygulama arayüzü ve kullanıcı akışı Figma'da tasarlanmıştır .
+Responsive Tasarım: MediaQuery  kullanılarak tüm arayüz elemanları (yazı tipleri, boşluklar, butonlar) ekran boyutuna göre oransal olarak ayarlanmıştır. Uygulama, farklı boyuttaki telefonlarda tutarlı bir görünüm sunar.
 
 
-Responsive Tasarım: MediaQuery kullanılarak tüm arayüz elemanları (yazı tipleri, boşluklar) ekran boyutuna göre oransal olarak ayarlanmıştır.
-
-
-Geri Bildirim: Doğru/yanlış eşleşmelerde ses efektleri (SoundManager) ve HapticFeedback (titreşim)  kullanılır.
+Duyusal Geri Bildirim: Doğru/yanlış eşleşmelerde, kullanıcının ayarlarına bağlı olarak ses efektleri (SoundManager) ve HapticFeedback (titreşim)  kullanılır.
 
 
 
-Kapsamlı Hata Yönetimi: Tüm ağ ve veritabanı işlemleri try-catch blokları ile güvence altına alınmış, kullanıcılara SnackBar aracılığıyla anlaşılır hata mesajları ("Yeterli coininiz yok!", "Giriş iptal edildi.") gösterilmiştir .
-
-Ayarlar ve Kişiselleştirme:
+Kapsamlı Hata Yönetimi: Tüm ağ ve veritabanı işlemleri try-catch  blokları ile güvence altına alınmıştır. Kullanıcılara SnackBar aracılığıyla "Yeterli coininiz yok!" , "Giriş iptal edildi."  gibi anlaşılır hata mesajları gösterilir.
 
 
-Avatar Seçimi: Kullanıcıların GridView içinden bir profil avatarı seçmesine olanak tanır.
+
+🔧 Ayarlar ve Kişiselleştirme
+
+Avatar Seçimi: Kullanıcıların GridView  içinden önceden hazırlanmış avatarlardan birini profil resmi olarak seçmesine olanak tanır.
 
 
-Kontroller: Ses efektleri ve titreşim ayarlarını açıp kapatma .
+Oyun Kontrolleri: Ses efektleri ve titreşim ayarlarını açıp kapatma .
 
 
 Hesap Yönetimi: İlerlemeyi sıfırlama ve hesaptan güvenli çıkış yapma (signOut).
 
+🚀 Projeyi Çalıştırma
+1️⃣ Depoyu klonlayın:
 
-🛠️ Kullanılan Teknolojiler ve Paketler
-Framework: Flutter
+Bash
 
-Dil: Dart
+git clone https://github.com/[KULLANICI_ADINIZ]/[REPO_ADINIZ].git
+2️⃣ Proje dizinine gidin:
 
+Bash
 
-Tasarım Aracı: Figma 
+cd [REPO_ADINIZ]
+3️⃣ Gerekli paketleri yükleyin:
 
-Durum Yönetimi (State Management):
+Bash
 
+flutter pub get
+4️⃣ Firebase Kurulumu (Önemli):
 
-provider: Uygulama genelindeki kullanıcı verilerini (örn: UserDataProvider) yönetmek ve arayüzü güncellemek için kullanıldı.
+Bu proje, Google ile Giriş için Firebase Authentication kullanmaktadır. Projenin çalışması için kendi Firebase projenizi oluşturmanız ve Android/iOS için yapılandırma dosyalarını (google-services.json ve GoogleService-Info.plist) projenizdeki ilgili klasörlere eklemeniz gerekmektedir.
 
-Yerel Veritabanı:
+5️⃣ Uygulamayı çalıştırın:
 
+Bash
 
-sqflite: Kullanıcı ilerlemesi, ayarları, can durumu ve zaman damgaları gibi tüm verileri cihazda kalıcı olarak saklamak için kullanıldı.
+flutter run
+👤 Geliştirici
 
-Kimlik Doğrulama:
+Eyüphan Zengin 
 
+GitHub: [GitHub Profil Linkiniz]
 
-firebase_auth: Google ile giriş işlemleri.
-
-
-google_sign_in: Google oturumunu yönetme.
-
-Önemli Flutter Paketleri:
-
-
-fl_chart: İstatistikler ekranındaki pasta grafiği için.
-
-
-flutter_fortune_wheel: Şans Çarkı özelliği için.
-
-
-google_fonts: Uygulama genelinde özel yazı tipleri kullanmak için.
+LinkedIn: [LinkedIn Profil Linkiniz]
