@@ -6,8 +6,6 @@
 
 Bu proje, **Eyüphan Zengin** tarafından **Atatürk Üniversitesi Mühendislik Fakültesi Bilgisayar Mühendisliği Bölümü** staj çalışması kapsamında sıfırdan tasarlanmış ve kodlanmıştır.
 
-![MatchLang Ana Ekran](https://i.imgur.com/gY9Tqg8.png)
-*(Bu görsel temsilidir, kendi ekran görüntünüzü ekleyebilirsiniz)*
 
 ---
 
