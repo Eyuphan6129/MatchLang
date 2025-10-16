@@ -1,4 +1,4 @@
-# MatchLang 🇬🇧🇹🇷
+# MatchLang
 
 > Eğlenerek İngilizce kelime öğrenmenin en oyunlaştırılmış yolu!
 
