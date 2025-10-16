@@ -69,3 +69,29 @@ Proje, modern mobil uygulama geliştirme standartları göz önünde bulundurula
 1️⃣ **Depoyu klonlayın:**
 ```sh
 git clone [https://github.com/](https://github.com/)[KULLANICI_ADINIZ]/[REPO_ADINIZ].git
+
+2️⃣ Proje dizinine gidin:
+
+Bash
+
+cd [REPO_ADINIZ]
+3️⃣ Gerekli paketleri yükleyin:
+
+Bash
+
+flutter pub get
+4️⃣ Firebase Kurulumu (Önemli):
+
+Bu proje, Google ile Giriş için Firebase Authentication kullanmaktadır. Projenin çalışması için kendi Firebase projenizi oluşturmanız ve Android/iOS için yapılandırma dosyalarını (google-services.json ve GoogleService-Info.plist) projenizdeki ilgili klasörlere eklemeniz gerekmektedir.
+
+5️⃣ Uygulamayı çalıştırın:
+
+Bash
+
+flutter run
+👤 Geliştirici
+Eyüphan Zengin
+
+GitHub: [GitHub Profil Linkiniz]
+
+LinkedIn: [LinkedIn Profil Linkiniz]
