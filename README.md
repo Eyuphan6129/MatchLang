@@ -68,11 +68,11 @@ Proje, modern mobil uygulama geliştirme standartları göz önünde bulundurula
 
 1️⃣ **Depoyu klonlayın:**
 ```sh
-git clone [https://github.com/](https://github.com/)[KULLANICI_ADINIZ]/[REPO_ADINIZ].git
+git clone [https://github.com/](https://github.com/)[Eyuphan6129]/[MatchLang].git
 ```
 2️⃣ Proje dizinine gidin:
 ```sh
-cd [REPO_ADINIZ]
+cd [MatchLang]
 ```
 3️⃣ Gerekli paketleri yükleyin:
 ```sh
